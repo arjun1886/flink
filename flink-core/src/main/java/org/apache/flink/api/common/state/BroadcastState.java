@@ -21,6 +21,7 @@ package org.apache.flink.api.common.state;
 import org.apache.flink.annotation.PublicEvolving;
 
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -59,7 +60,7 @@ public interface BroadcastState<K, V> extends ReadOnlyBroadcastState<K, V> {
      * @param map The mappings to be stored in this state
      * @throws Exception Thrown if the system cannot access the state.
      */
-    void putAll(Map<K, V> map) throws Exception;
+    void putAll(LinkedHashMap<K, V> map) throws Exception;
 
     /**
      * Deletes the mapping of the given key.
@@ -75,7 +76,7 @@ public interface BroadcastState<K, V> extends ReadOnlyBroadcastState<K, V> {
      * @return An iterator over all the mappings in the state
      * @throws Exception Thrown if the system cannot access the state.
      */
-    Iterator<Map.Entry<K, V>> iterator() throws Exception;
+    Iterator<LinkedHashMap.Entry<K, V>> iterator() throws Exception;
 
     /**
      * Returns all the mappings in the state.
@@ -83,5 +84,5 @@ public interface BroadcastState<K, V> extends ReadOnlyBroadcastState<K, V> {
      * @return An iterable view of all the key-value pairs in the state.
      * @throws Exception Thrown if the system cannot access the state.
      */
-    Iterable<Map.Entry<K, V>> entries() throws Exception;
+    Iterable<LinkedHashMap.Entry<K, V>> entries() throws Exception;
 }

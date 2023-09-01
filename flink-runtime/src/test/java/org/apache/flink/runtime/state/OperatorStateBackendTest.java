@@ -661,9 +661,9 @@ public class OperatorStateBackendTest {
             assertEquals(20, it.next());
             assertFalse(it.hasNext());
 
-            Iterator<Map.Entry<Serializable, Serializable>> bIt = broadcastState1.iterator();
+            Iterator<LinkedHashMap.Entry<Serializable, Serializable>> bIt = broadcastState1.iterator();
             assertTrue(bIt.hasNext());
-            Map.Entry<Serializable, Serializable> entry = bIt.next();
+            LinkedHashMap.Entry<Serializable, Serializable> entry = bIt.next();
             assertEquals(1, entry.getKey());
             assertEquals(2, entry.getValue());
             assertTrue(bIt.hasNext());
